@@ -1,33 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
-import { w3cwebsocket as W3CWebSocket } from 'websocket';
-// web socket
-const client = new W3CWebSocket('ws://localhost:3600');
-// const client = new W3CWebSocket(`ws://localhost:${process.env.PORT}`);
+
+import MainPage from './pages/main/main.component.jsx';
+import AnotherPage from './pages/another/another.component.jsx';
 
 function App() {
-  useEffect(() => {
-    client.onopen = () => {
-      console.log('WebSocket Client Connected');
-    };
-
-    client.onmessage = (message) => {
-      const dataFromServer = JSON.parse(message.data);
-      console.log('data from back-end ', dataFromServer);
-      // if (dataFromServer.type === "message") {
-      //   this.setState((state) =>
-      //     ({
-      //       messages: [...state.messages,
-      //       {
-      //         msg: dataFromServer.msg,
-      //         user: dataFromServer.user
-      //       }]
-      //     })
-      //   );
-      // }
-    };
-  }, []);
-  return <div className="App">testing</div>;
+  return (
+    <React.Fragment>
+      <Switch>
+        <Route exact={true} path="/" component={MainPage} />
+        <Route path="/anotherpage" component={AnotherPage} />
+      </Switch>
+    </React.Fragment>
+  );
 }
 
 export default App;
