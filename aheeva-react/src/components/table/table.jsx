@@ -4,7 +4,6 @@ import { COLUMNS } from './columns.js';
 import './table.styles.css';
 
 function Table({ callData }) {
-  //   console.log('callData table: ', callData);
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => callData, [callData]);
 
@@ -26,7 +25,7 @@ function Table({ callData }) {
     usePagination
   );
 
-  //   https://react-table.tanstack.com/docs/api/useTable#instance-properties
+  //  react-table documentation https://react-table.tanstack.com/docs/api/useTable#instance-properties
 
   const {
     getTableProps,

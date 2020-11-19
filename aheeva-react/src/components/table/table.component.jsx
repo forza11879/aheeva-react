@@ -15,18 +15,29 @@ function TableComponent() {
 
     client.onmessage = (message) => {
       const dataFromServer = JSON.parse(message.data);
-      dataFromServer.map((item) => {
-        return setCallData((oldArray) => [
-          ...oldArray,
-          {
-            timestamp: Date.now(),
-            id: item.id,
-            duration: item.duration,
-          },
-        ]);
-      });
+      // console.log('dataFromServer: ', dataFromServer);
+      setCallData((oldArray) => [
+        ...oldArray,
+        {
+          timestamp: Date.now(),
+          id: dataFromServer.id,
+          duration: dataFromServer.duration,
+        },
+      ]);
+      // dataFromServer.map((item) => {
+      //   return setCallData((oldArray) => [
+      //     ...oldArray,
+      //     {
+      //       timestamp: Date.now(),
+      //       id: item.id,
+      //       duration: item.duration,
+      //     },
+      //   ]);
+      // });
     };
   }, [callData]);
+
+  console.log('callData: ', callData);
 
   return (
     <React.Fragment>
