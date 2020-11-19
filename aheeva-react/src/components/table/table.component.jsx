@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { w3cwebsocket as W3CWebSocket } from 'websocket';
+import { getData } from './utility.js';
 import Table from './table.jsx';
 
 // web socket
@@ -25,12 +26,16 @@ function TableComponent() {
       ]);
     };
   }, [callData]);
+  const getWebSocketConnection = () => {
+    getData();
+  };
 
   console.log('callData: ', callData);
 
   return (
     <React.Fragment>
       <Table callData={callData} />
+      <button onClick={() => getWebSocketConnection()}>Connect</button>
     </React.Fragment>
   );
 }
