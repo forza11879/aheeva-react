@@ -4,9 +4,7 @@ import TableComponent from '../../components/table/table.component.jsx';
 function MainPage() {
   return (
     <React.Fragment>
-      {/* <Sidebar /> */}
       <TableComponent />
-      {/* <Sidebartwo /> */}
     </React.Fragment>
   );
 }

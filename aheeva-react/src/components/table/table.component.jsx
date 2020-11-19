@@ -15,7 +15,6 @@ function TableComponent() {
 
     client.onmessage = (message) => {
       const dataFromServer = JSON.parse(message.data);
-      // console.log('dataFromServer: ', dataFromServer);
       setCallData((oldArray) => [
         ...oldArray,
         {
@@ -24,16 +23,6 @@ function TableComponent() {
           duration: dataFromServer.duration,
         },
       ]);
-      // dataFromServer.map((item) => {
-      //   return setCallData((oldArray) => [
-      //     ...oldArray,
-      //     {
-      //       timestamp: Date.now(),
-      //       id: item.id,
-      //       duration: item.duration,
-      //     },
-      //   ]);
-      // });
     };
   }, [callData]);
 
@@ -41,9 +30,7 @@ function TableComponent() {
 
   return (
     <React.Fragment>
-      {/* <Sidebar /> */}
       <Table callData={callData} />
-      {/* <Sidebartwo /> */}
     </React.Fragment>
   );
 }
