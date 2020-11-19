@@ -1,9 +1,9 @@
-async function getData(url, customConfig = {}) {
+function getData(url, customConfig = {}) {
   const config = {
     method: 'GET',
     ...customConfig,
   };
-  return await fetch(url, config).then(async (response) => {
+  return fetch(url, config).then(async (response) => {
     const data = await response.json();
     if (response.ok) {
       console.log('successful connection');
