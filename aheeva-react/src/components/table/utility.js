@@ -3,7 +3,7 @@ async function getData(url, customConfig = {}) {
     method: 'GET',
     ...customConfig,
   };
-  return await window.fetch(url, config).then(async (response) => {
+  return await fetch(url, config).then(async (response) => {
     const data = await response.json();
     if (response.ok) {
       console.log('successful connection');
