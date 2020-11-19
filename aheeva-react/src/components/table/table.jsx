@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { useTable } from 'react-table';
+import { useTable, useSortBy } from 'react-table';
 import { COLUMNS } from './columns.js';
 import './table.styles.css';
 
@@ -8,10 +8,21 @@ function Table({ callData }) {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => callData, [callData]);
 
-  const tableInstance = useTable({
-    columns,
-    data,
-  });
+  const tableInstance = useTable(
+    {
+      columns,
+      data,
+      initialState: {
+        sortBy: [
+          {
+            timestamp: 'timestamp',
+            desc: false,
+          },
+        ],
+      },
+    },
+    useSortBy
+  );
   //   https://react-table.tanstack.com/docs/api/useTable#instance-properties
 
   const {
@@ -30,7 +41,16 @@ function Table({ callData }) {
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render('Header')}
+                  <span>
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? ' 🔽'
+                        : ' 🔼'
+                      : ''}
+                  </span>
+                </th>
               ))}
             </tr>
           ))}
@@ -49,7 +69,7 @@ function Table({ callData }) {
             );
           })}
         </tbody>
-        <tfoot>
+        {/* <tfoot>
           {footerGroups.map((footerGroup) => (
             <tr {...footerGroup.getFooterGroupProps()}>
               {footerGroup.headers.map((column) => (
@@ -57,7 +77,7 @@ function Table({ callData }) {
               ))}
             </tr>
           ))}
-        </tfoot>
+        </tfoot> */}
       </table>
     </>
   );
