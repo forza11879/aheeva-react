@@ -3,8 +3,11 @@ import { w3cwebsocket as W3CWebSocket } from 'websocket';
 import { getData } from './utility.js';
 import Table from './table.jsx';
 
+const urlWebSocket = `ws://localhost:${process.env.REACT_APP_PORT}`;
+const url = `http://localhost:${process.env.REACT_APP_PORT}`;
+
 // web socket
-const client = new W3CWebSocket(`ws://localhost:${process.env.REACT_APP_PORT}`);
+const client = new W3CWebSocket(urlWebSocket);
 
 function TableComponent() {
   const [callData, setCallData] = useState([]);
@@ -32,7 +35,7 @@ function TableComponent() {
   return (
     <React.Fragment>
       <Table callData={callData} />
-      <button onClick={() => getData()}>Connect</button>
+      <button onClick={() => getData(url)}>Connect</button>
     </React.Fragment>
   );
 }
