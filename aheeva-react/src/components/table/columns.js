@@ -1,13 +1,13 @@
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 
 export const COLUMNS = [
   {
     Header: 'Timestamp',
     Footer: 'Timestamp',
     accessor: 'timestamp',
-    Cell: ({ value }) => {
-      return format(new Date(value), 'dd/MM/yyyy');
-    },
+    // Cell: ({ value }) => {
+    //   return format(new Date(value), 'dd/MM/yyyy');
+    // },
   },
   {
     Header: 'Call ID',
@@ -15,6 +15,9 @@ export const COLUMNS = [
     accessor: 'id',
     disableFilters: true,
     sticky: 'left',
+    Cell: ({ value }) => {
+      return `call__${value}`;
+    },
   },
   {
     Header: 'Duration',

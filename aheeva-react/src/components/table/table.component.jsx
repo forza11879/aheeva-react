@@ -1,4 +1,3 @@
-// import React, { useEffect } from 'react';
 import React, { useEffect, useState } from 'react';
 import { w3cwebsocket as W3CWebSocket } from 'websocket';
 import Table from './table.jsx';
@@ -33,7 +32,6 @@ function TableComponent() {
     <React.Fragment>
       {/* <Sidebar /> */}
       <Table callData={callData} />
-      <div>Table</div>
       {/* <Sidebartwo /> */}
     </React.Fragment>
   );
