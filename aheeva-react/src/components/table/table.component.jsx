@@ -26,16 +26,13 @@ function TableComponent() {
       ]);
     };
   }, [callData]);
-  const getWebSocketConnection = () => {
-    getData();
-  };
 
   console.log('callData: ', callData);
 
   return (
     <React.Fragment>
       <Table callData={callData} />
-      <button onClick={() => getWebSocketConnection()}>Connect</button>
+      <button onClick={() => getData()}>Connect</button>
     </React.Fragment>
   );
 }
