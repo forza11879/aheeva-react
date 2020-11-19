@@ -3,8 +3,11 @@ import { w3cwebsocket as W3CWebSocket } from 'websocket';
 import { getData } from './utility.js';
 import Table from './table.jsx';
 
-const urlWebSocket = `ws://localhost:${process.env.REACT_APP_PORT}`;
-const url = `http://localhost:${process.env.REACT_APP_PORT}`;
+const port = process.env.REACT_APP_PORT;
+const hostname = 'localhost';
+
+const urlWebSocket = `ws://${hostname}:${port}`;
+const url = `http://${hostname}:${port}`;
 
 // web socket
 const client = new W3CWebSocket(urlWebSocket);
