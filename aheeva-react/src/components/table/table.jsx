@@ -113,7 +113,7 @@ function Table({ callData }) {
               Show {pageSize}
             </option>
           ))}
-        </select>
+        </select>{' '}
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
         </button>{' '}
