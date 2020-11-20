@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import MainPage from './pages/main/main.component.jsx';
 import AnotherPage from './pages/another/another.component.jsx';

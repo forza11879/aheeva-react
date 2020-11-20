@@ -82,6 +82,7 @@ function Table({ callData }) {
           })}
         </tbody>
       </table>
+      <br></br>
       <div>
         <span>
           Page{' '}

@@ -39,6 +39,10 @@ function TableComponent() {
     <React.Fragment>
       <Table callData={callData} />
       <button onClick={() => getData(url)}>Connect</button>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </React.Fragment>
   );
 }
